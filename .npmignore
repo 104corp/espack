@@ -1,0 +1,17 @@
+__tests__
+__mocks__
+coverage
+*.tgz
+.npm
+.yarn-integrity
+yarn-error.log*
+yarn-debug.log*
+npm-debug.log*
+.travis.yml
+dist
+yarn.lock
+package-lock.json
+junit.xml
+.eslintignore
+.eslintrc
+.gitignore

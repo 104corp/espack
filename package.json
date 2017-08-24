@@ -1,0 +1,127 @@
+{
+  "name": "@104corp/espack",
+  "version": "1.0.0-alpha.1",
+  "description": "espack is a awesome front-end tool with JS bundle solution around webpack for building static web",
+  "keywords": [
+    "espack"
+  ],
+  "main": "./lib/api/index.js",
+  "scripts": {
+    "test": "jest --verbose --colors --no-cache",
+    "lint": "eslint .",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "precommit": "eslint . && yarn test --coverage && git add README.md"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/104corp/espack.git"
+  },
+  "bin": {
+    "espack": "./bin/espack"
+  },
+  "dependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/plugin-transform-reserved-words": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "@babel/runtime": "^7.0.0",
+    "autoprefixer": "^9.1.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-loader": "^8.0.0",
+    "babel-plugin-lodash": "^3.3.4",
+    "chalk": "^2.3.0",
+    "chokidar": "^2.0.4",
+    "commander": "^2.17.0",
+    "concatenate": "^0.0.2",
+    "css-loader": "^0.28.11",
+    "ejs-loader": "^0.3.0",
+    "express": "^4.15.4",
+    "file-loader": "^2.0.0",
+    "fs-extra": "^7.0.0",
+    "glob": "^7.1.3",
+    "html-webpack-plugin": "^3.2.0",
+    "imports-loader": "^0.8.0",
+    "json-loader": "^0.5.7",
+    "less": "^3.8.0",
+    "less-loader": "^4.0.6",
+    "lodash": "^4.17.5",
+    "lodash-webpack-plugin": "^0.11.4",
+    "mini-css-extract-plugin": "^0.4.1",
+    "node-sass": "^4.9.2",
+    "opener": "^1.5.1",
+    "ora": "^3.0.0",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "postcss-loader": "^3.0.0",
+    "resolve-url-loader": "^2.2.1",
+    "sass-loader": "^7.1.0",
+    "uglify-es": "^3.3.8",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.16.4",
+    "webpack-dev-server": "^3.1.6"
+  },
+  "devDependencies": {
+    "babel-eslint": "^9.0.0",
+    "babel-jest": "^23.4.2",
+    "babel-plugin-array-includes": "^2.0.3",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "husky": "^0.14.3",
+    "jest": "^23.4.2",
+    "jest-junit": "^5.1.0",
+    "regenerator-runtime": "^0.12.1"
+  },
+  "engines": {
+    "node": ">=8.10.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "lib/**/*.js",
+      "!**/node_modules/**",
+      "!lib/template/**",
+      "!lib/register.js"
+    ],
+    "testMatch": [
+      "**/__tests__/**/?(*.)(spec|test).js?(x)"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "."
+    ],
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
+    "testResultsProcessor": "./__mocks__/custom-reporter.js",
+    "notify": true
+  },
+  "jest-junit": {
+    "suiteName": "Jest tests",
+    "output": "./junit.xml",
+    "classNameTemplate": "{classname}",
+    "titleTemplate": "{title}",
+    "ancestorSeparator": " › ",
+    "usePathForSuiteName": "true"
+  }
+}

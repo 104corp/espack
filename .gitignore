@@ -1,0 +1,12 @@
+yarn-error.log*
+yarn-debug.log*
+npm-debug.log*
+*.tgz
+node_modules
+npm-debug.log
+.vscode
+junit.xml
+/coverage
+/bower_components
+/build
+/dist

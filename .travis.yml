@@ -1,0 +1,20 @@
+dist: trusty
+language: node_js
+sudo: false
+node_js:
+  - 8
+cache:
+  directories:
+  - node_modules
+install:
+  - npm install
+script:
+  - npm run lint
+  - node bin/espack -h
+  - node bin/espack dev -h
+  - node bin/espack build -h
+  - npm run test -- --coverage
+after_success:
+  - npm run coveralls
+notifications:
+  slack: 104corp:OjxdMag434HAo4es5ojIthBf

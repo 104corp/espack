@@ -1,0 +1,70 @@
+#!/usr/bin/env node
+
+const chalk = require('chalk');
+const program = require('commander');
+const ora = require('ora');
+const runner = require('../lib/register');
+const config = require('../lib/config');
+const package = require('../package.json');
+
+program
+  .version(package.version)
+  .usage('<command>')
+  .description(chalk.cyan('espack'));
+
+program
+  .command('dev')
+  .version(package.version)
+  .description('Development model')
+  .option('-p, --port <value>', 'Specify a port number to run dev server', process.env.npm_package_config_port || 8888)
+  .option('-v, --views_folder <value>', 'The bundled html will be under this path', config.VIEW_ROOT)
+  .option('-s, --static_folder <value>', 'The bundled resources will be under this path', config.STATIC_ROOT)
+  .option('-c, --css_assets_path <value>', 'The url root path in css will be replaced', config.CSS_ASSETS_PATH)
+  .option('-b, --base_tag <value>', 'Specify a default base URL for all links on a page', config.BASE_TAG)
+  .action((env, options) => {
+    const spinner = ora(config.CLI_DEV_TITLE).start();
+    runner.start({
+      dev: true,
+      port: env.port,
+      viewsFolder: env.views_folder,
+      staticFolder: env.static_folder,
+      cssAssetsPath: env.css_assets_path,
+      baseTag: env.base_tag,
+      spinner,
+    });
+  });
+
+program
+  .command('build')
+  .version(package.version)
+  .description('Production model')
+  .option('-d, --drop_console', 'Remove console', true)
+  .option('-v, --views_folder <value>', 'The bundled html will be under this path', config.VIEW_ROOT)
+  .option('-s, --static_folder <value>', 'The bundled resources will be under this path', config.STATIC_ROOT)
+  .option('-c, --css_assets_path <value>', 'The url root path in css will be replaced', config.CSS_ASSETS_PATH)
+  .option('-b, --base_tag <value>', 'Specify a default base URL for all links on a page', config.BASE_TAG)
+  .option('-k, --keep_dist', 'Do not remove the dist folder when publishing', true)
+  .action((env, options) => {
+    const spinner = ora(config.CLI_BUILD_TITLE).start();
+    runner.start({
+      dev: false,
+      keepDist: env.keep_dist || false,
+      dropConsole: env.drop_console || false,
+      viewsFolder: env.views_folder,
+      staticFolder: env.static_folder,
+      cssAssetsPath: env.css_assets_path,
+      baseTag: env.base_tag,
+      spinner,
+    });
+  });
+
+console.log();
+process.on('exit', () => {
+  console.log();
+});
+
+program
+  .parse(process.argv);
+
+// help
+if (program.args.length < 1) return program.help();

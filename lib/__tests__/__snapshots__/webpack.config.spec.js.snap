@@ -1,0 +1,449 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`webpack.config.js development config 驗證 1`] = `
+Object {
+  "devtool": "source-map",
+  "entry": Object {
+    "./js/index": Array [
+      "webpack-dev-server/client?http://localhost:8888/",
+      "webpack/hot/dev-server",
+      "./src/pages/index.js",
+    ],
+    "__about__": Array [
+      "webpack-dev-server/client?http://localhost:8888/",
+      "webpack/hot/dev-server",
+      "/template/_about.js",
+    ],
+  },
+  "mode": "development",
+  "module": Object {
+    "rules": Array [
+      Object {
+        "loader": "ejs-loader",
+        "test": /\\\\\\.ejs\\$/,
+      },
+      Object {
+        "exclude": /\\(node_modules\\|bower_components\\)/,
+        "test": /\\\\\\.jsx\\?\\$/,
+        "use": Object {
+          "loader": "babel-loader",
+          "options": Object {
+            "cacheDirectory": true,
+            "plugins": Array [
+              "lodash",
+            ],
+          },
+        },
+      },
+      Object {
+        "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
+        "use": Array [
+          Object {
+            "loader": "url-loader",
+            "options": Object {
+              "limit": 10000,
+              "name": [Function],
+              "publicPath": [Function],
+            },
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.\\(woff2\\?\\|ttf\\|eot\\|otf\\)\\$/,
+        "use": Array [
+          Object {
+            "loader": "file-loader",
+            "options": Object {
+              "name": [Function],
+              "publicPath": [Function],
+            },
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.\\(css\\|s\\[ac\\]ss\\)\\$/,
+        "use": Array [
+          [Function],
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "alias": Object {
+                "@": "/",
+              },
+              "minimize": true,
+              "sourceMap": true,
+            },
+          },
+          Object {
+            "loader": "postcss-loader",
+            "options": Object {
+              "ident": "postcss",
+              "plugins": Array [
+                [Function],
+                [Function],
+              ],
+              "sourceMap": true,
+            },
+          },
+          Object {
+            "loader": "resolve-url-loader",
+            "options": Object {
+              "root": "/node_modules",
+              "sourceMap": true,
+            },
+          },
+          Object {
+            "loader": "sass-loader",
+            "options": Object {
+              "sourceMap": true,
+            },
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.less\\$/,
+        "use": Array [
+          [Function],
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "alias": Object {
+                "@": "/",
+              },
+              "minimize": true,
+              "sourceMap": true,
+            },
+          },
+          Object {
+            "loader": "postcss-loader",
+            "options": Object {
+              "ident": "postcss",
+              "plugins": Array [
+                [Function],
+                [Function],
+              ],
+              "sourceMap": true,
+            },
+          },
+          Object {
+            "loader": "less-loader",
+            "options": Object {
+              "sourceMap": true,
+            },
+          },
+        ],
+      },
+    ],
+  },
+  "optimization": Object {
+    "splitChunks": Object {
+      "cacheGroups": Object {
+        "default": false,
+      },
+    },
+  },
+  "output": Object {
+    "chunkFilename": "[name].js",
+    "filename": "[name].js?[chunkhash:8]",
+    "path": "/dist",
+    "publicPath": "",
+  },
+  "plugins": Array [
+    Object {},
+    HtmlWebpackPlugin {
+      "options": Object {
+        "cache": true,
+        "chunkList": Array [
+          Object {
+            "link": "./index.html",
+            "text": "./index.html",
+          },
+        ],
+        "chunks": Array [
+          "__about__",
+        ],
+        "chunksSortMode": "auto",
+        "compile": true,
+        "excludeChunks": Array [],
+        "favicon": false,
+        "filename": "index.html",
+        "hash": false,
+        "inject": true,
+        "meta": Object {},
+        "minify": false,
+        "showErrors": true,
+        "template": "/template/_default.ejs",
+        "templateParameters": [Function],
+        "title": "Webpack App",
+        "xhtml": false,
+      },
+    },
+    HtmlWebpackPlugin {
+      "options": Object {
+        "baseTag": "/",
+        "cache": true,
+        "chunks": Array [
+          "./js/index",
+        ],
+        "chunksSortMode": "auto",
+        "compile": true,
+        "excludeChunks": Array [],
+        "favicon": false,
+        "filename": "./index.html",
+        "hash": false,
+        "inject": "body",
+        "meta": Object {},
+        "minify": Object {
+          "collapseWhitespace": false,
+          "minifyCSS": false,
+          "minifyJS": false,
+          "preserveLineBreaks": false,
+          "removeComments": false,
+        },
+        "showErrors": true,
+        "template": "./src/pages/index.ejs",
+        "templateParameters": [Function],
+        "title": "Webpack App",
+        "xhtml": false,
+      },
+    },
+    Object {
+      "filename": "[name].css?[contenthash:8]",
+    },
+    LodashWebpackPlugin {},
+    CSSExtractRenamePlugin {},
+  ],
+  "resolve": Object {
+    "extensions": Array [
+      ".web.js",
+      ".js",
+      ".json",
+      ".web.jsx",
+      ".jsx",
+      ".css",
+      ".scss",
+      ".sass",
+      ".less",
+    ],
+    "modules": Array [
+      "bower_components",
+      "node_modules",
+    ],
+  },
+}
+`;
+
+exports[`webpack.config.js production config 驗證 1`] = `
+Object {
+  "devtool": false,
+  "entry": Object {
+    "./js/index": Array [
+      "./src/pages/index.js",
+    ],
+  },
+  "mode": "production",
+  "module": Object {
+    "rules": Array [
+      Object {
+        "loader": "ejs-loader",
+        "test": /\\\\\\.ejs\\$/,
+      },
+      Object {
+        "exclude": /\\(node_modules\\|bower_components\\)/,
+        "test": /\\\\\\.jsx\\?\\$/,
+        "use": Object {
+          "loader": "babel-loader",
+          "options": Object {
+            "cacheDirectory": true,
+            "plugins": Array [
+              "lodash",
+            ],
+          },
+        },
+      },
+      Object {
+        "test": /\\\\\\.\\(jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
+        "use": Array [
+          Object {
+            "loader": "url-loader",
+            "options": Object {
+              "limit": 10000,
+              "name": [Function],
+              "publicPath": [Function],
+            },
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.\\(woff2\\?\\|ttf\\|eot\\|otf\\)\\$/,
+        "use": Array [
+          Object {
+            "loader": "file-loader",
+            "options": Object {
+              "name": [Function],
+              "publicPath": [Function],
+            },
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.\\(css\\|s\\[ac\\]ss\\)\\$/,
+        "use": Array [
+          [Function],
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "alias": Object {
+                "@": "/",
+              },
+              "minimize": true,
+              "sourceMap": true,
+            },
+          },
+          Object {
+            "loader": "postcss-loader",
+            "options": Object {
+              "ident": "postcss",
+              "plugins": Array [
+                [Function],
+                [Function],
+              ],
+              "sourceMap": true,
+            },
+          },
+          Object {
+            "loader": "resolve-url-loader",
+            "options": Object {
+              "root": "/node_modules",
+              "sourceMap": true,
+            },
+          },
+          Object {
+            "loader": "sass-loader",
+            "options": Object {
+              "sourceMap": true,
+            },
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.less\\$/,
+        "use": Array [
+          [Function],
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "alias": Object {
+                "@": "/",
+              },
+              "minimize": true,
+              "sourceMap": true,
+            },
+          },
+          Object {
+            "loader": "postcss-loader",
+            "options": Object {
+              "ident": "postcss",
+              "plugins": Array [
+                [Function],
+                [Function],
+              ],
+              "sourceMap": true,
+            },
+          },
+          Object {
+            "loader": "less-loader",
+            "options": Object {
+              "sourceMap": true,
+            },
+          },
+        ],
+      },
+    ],
+  },
+  "optimization": Object {
+    "minimizer": Array [
+      Object {
+        "parallel": true,
+        "sourceMap": false,
+        "uglifyOptions": Object {
+          "compress": Object {
+            "dead_code": true,
+            "drop_console": false,
+            "warnings": false,
+          },
+          "ie8": true,
+          "output": Object {
+            "comments": false,
+          },
+        },
+      },
+    ],
+    "splitChunks": Object {
+      "cacheGroups": Object {
+        "default": false,
+      },
+    },
+  },
+  "output": Object {
+    "chunkFilename": "[name].js",
+    "filename": "[name].js?[chunkhash:8]",
+    "path": "/dist",
+    "publicPath": "",
+  },
+  "plugins": Array [
+    Object {},
+    HtmlWebpackPlugin {
+      "options": Object {
+        "baseTag": "/",
+        "cache": true,
+        "chunks": Array [
+          "./js/index",
+        ],
+        "chunksSortMode": "auto",
+        "compile": true,
+        "excludeChunks": Array [],
+        "favicon": false,
+        "filename": "./index.html",
+        "hash": false,
+        "inject": "body",
+        "meta": Object {},
+        "minify": Object {
+          "collapseWhitespace": false,
+          "minifyCSS": false,
+          "minifyJS": false,
+          "preserveLineBreaks": false,
+          "removeComments": false,
+        },
+        "showErrors": true,
+        "template": "./src/pages/index.ejs",
+        "templateParameters": [Function],
+        "title": "Webpack App",
+        "xhtml": false,
+      },
+    },
+    Object {
+      "filename": "[name].css?[contenthash:8]",
+    },
+    LodashWebpackPlugin {},
+    CSSExtractRenamePlugin {},
+  ],
+  "resolve": Object {
+    "extensions": Array [
+      ".web.js",
+      ".js",
+      ".json",
+      ".web.jsx",
+      ".jsx",
+      ".css",
+      ".scss",
+      ".sass",
+      ".less",
+    ],
+    "modules": Array [
+      "bower_components",
+      "node_modules",
+    ],
+  },
+}
+`;
