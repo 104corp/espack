@@ -1,0 +1,27 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {
+        "browsers": [
+          "ie >= 8"
+        ]
+      },
+      "useBuiltIns": "usage",
+      "modules": false
+    }],
+    "@104corp/espack/lib/babel/preset-stage",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-reserved-words"
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        "@babel/preset-env",
+        "@104corp/espack/lib/babel/preset-stage",
+        "@babel/preset-react"
+      ]
+    }
+  }
+}

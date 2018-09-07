@@ -1,0 +1,19 @@
+body {
+  background-color: #fff3ec;
+}
+
+.pic-more {
+  width: 309px;
+  height: 150px;
+  // 大於 10k 檔案會轉成路徑
+  background-image: url('../../../../public/img/more-than-10k.png');
+  // url 可以使用相對路徑或 ~@/ 從執行目錄往下查找
+  background-image: url('~@/public/img/more-than-10k.png');
+  margin: auto;
+}
+
+#console {
+  margin-top: 20px;
+  font-size: 2rem;
+  color: #9B9B9B;
+}

@@ -1,0 +1,91 @@
+{
+  "name": "espack-example",
+  "version": "1.0.0",
+  "description": "espack example",
+  "config": {
+    "port": "8080"
+  },
+  "scripts": {
+    "dev": "espack dev",
+    "build": "espack build -c ../../",
+    "lint": "eslint .",
+    "test": "npm run lint && jest --env=jsdom --verbose --colors --no-cache"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@104corp/espack": "^1.0.0-alpha.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^9.0.0",
+    "babel-jest": "^23.0.1",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.8.2",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "html-beautify-webpack-plugin": "^1.0.4",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.4.2",
+    "jest-junit": "^5.1.0",
+    "jsdom": "^12.0.0",
+    "live-server": "^1.2.0",
+    "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-dashboard": "^2.0.0",
+    "webpack-notifier": "^1.5.0"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "lodash": "^4.17.4",
+    "nock": "^9.3.0",
+    "prop-types": "^15.6.1",
+    "qs": "^6.5.2",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-helmet": "^5.2.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^4.0.0",
+    "redux-mock-store": "^1.5.1",
+    "redux-observable": "^0.19.0",
+    "rxjs": "^5.5.11"
+  },
+  "engines": {
+    "node": ">=8.10.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/lib/**",
+      "!public/**"
+    ],
+    "testMatch": [
+      "**/__tests__/**/?(*.)(spec|test).js?(x)"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "."
+    ],
+    "setupFiles": [
+      "<rootDir>/__mocks__/setup.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "identity-obj-proxy"
+    },
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
+    "testURL": "http://localhost"
+  },
+  "jest-junit": {
+    "suiteName": "Jest tests",
+    "output": "./junit.xml",
+    "classNameTemplate": "{classname}",
+    "titleTemplate": "{title}",
+    "ancestorSeparator": " › ",
+    "usePathForSuiteName": "true"
+  }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= require("../../_commons/head.ejs")({
+      title: 'Page 1',
+      baseTag: htmlWebpackPlugin.options.baseTag
+    }) %>
+    <!--[if lte IE 9]>
+    <script src="js/animation.js"></script>
+  <![endif]-->
+  </head>
+  <body>
+    <div class="layout">
+      <%= require("../../_commons/header.ejs")({
+        active: 'page1'
+      }) %>
+      <i class="material-icons">&#xE8D0;</i><!--
+      --><h1 class="title">頁面一</h1><!--
+      --><i class="material-icons">&#xE8D0;</i>
+
+      <div class="pic-less"></div>
+      <div id="ie8"></div>
+    </div>
+  </body>
+</html>

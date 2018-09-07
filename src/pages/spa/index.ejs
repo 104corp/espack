@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= require("../_commons/head.ejs")({
+      title: 'SPA',
+      baseTag: htmlWebpackPlugin.options.baseTag
+    }) %>
+  </head>
+  <body>
+    <div id='root'>
+      <!--[if lte IE 8]>警告 React 不支援 IE 8<![endif]-->
+    </div>
+  </body>
+</html>

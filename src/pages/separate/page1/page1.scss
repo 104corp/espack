@@ -1,0 +1,15 @@
+.pic-less {
+  width: 309px;
+  height: 150px;
+  // 絕對路徑會保持不變，例如 / 開頭
+  background-image: url('/img/less-than-10k.png');
+  // 小於 10k 檔案會轉成 data:image/png;base64
+  background-image: url('~@/public/img/less-than-10k.png');
+  margin: auto;
+}
+
+#ie8 {
+  margin-top: 20px;
+  font-size: 3rem;
+  color: #9B9B9B;
+}

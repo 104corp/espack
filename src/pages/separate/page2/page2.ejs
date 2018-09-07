@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= require("../../_commons/head.ejs")({
+      title: 'Page 2',
+      baseTag: htmlWebpackPlugin.options.baseTag
+    }) %>
+  </head>
+  <body>
+    <div class="layout">
+      <%= require("../../_commons/header.ejs")({
+        active: 'page2'
+      }) %>
+      <i class="material-icons">&#xE8D0;</i><!--
+      --><h1 class="title">頁面二</h1><!--
+      --><i class="material-icons">&#xE8D0;</i>
+
+      <div class="pic-more"></div>
+      <div id="console"></div>
+    </div>
+  </body>
+</html>
