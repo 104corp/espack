@@ -1,0 +1,32 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {
+        "node": "current",
+        "browsers": [
+          ">1%",
+          "last 4 versions",
+          "Firefox ESR",
+          "not ie < 8"
+        ]
+      },
+      "useBuiltIns": "usage",
+      "modules": false
+    }],
+    "@104corp/espack/lib/babel/preset-stage"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-reserved-words"
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        "@babel/preset-env",
+        "@104corp/espack/lib/babel/preset-stage"
+      ],
+      "plugins": [
+        "array-includes"
+      ]
+    }
+  }
+}
