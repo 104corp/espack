@@ -3,7 +3,7 @@
   "version": "1.0.0-alpha.2",
   "description": "espack is a awesome front-end tool with JS bundle solution around webpack for building static web",
   "keywords": [
-    "espack"
+    "espack", "104corp", "webpack"
   ],
   "main": "./lib/api/index.js",
   "scripts": {
@@ -51,8 +51,10 @@
     "chokidar": "^2.0.4",
     "commander": "^2.17.0",
     "concatenate": "^0.0.2",
+    "cross-spawn": "^6.0.5",
     "css-loader": "^0.28.11",
     "ejs-loader": "^0.3.0",
+    "envinfo": "^5.10.0",
     "express": "^4.15.4",
     "file-loader": "^2.0.0",
     "fs-extra": "^7.0.0",

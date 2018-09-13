@@ -1,4 +1,4 @@
-# espack
+# @104corp/espack
 
 [![Node version](https://img.shields.io/badge/node-%3E%3D8.10.0-brightgreen.svg)](http://nodejs.org/) [![GitHub license](https://img.shields.io/github/license/104corp/espack.svg)](https://github.com/104corp/espack/blob/master/LICENSE) [![Build Status](https://travis-ci.org/104corp/espack.svg?branch=master)](https://travis-ci.org/104corp/espack) [![Coverage Status](https://coveralls.io/repos/github/104corp/espack/badge.svg?branch=master)](https://coveralls.io/github/104corp/espack?branch=master)
 
@@ -10,6 +10,22 @@ espack works on macOS. If something doesn't work, please file an issue.
 
 The front-end development environment built with espack is based on the concept of Convention-Over-Configuration. The goal is to allow developers to focus on the development of the project itself without having to be distracted in the development environment. You can quickly create multiple page content by simply creating some file.
 
+## Getting Started
+
+Automatically create a project.
+
+``` shell
+$ npm install @104corp/espack -g
+$ espack new my-app
+$ cd my-app
+$ npm run dev
+```
+
+If you prefer yarn.
+
+``` shell
+$ espack new my-app -i yarn
+```
 
 ## Depend
 

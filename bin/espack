@@ -7,6 +7,9 @@ const ora = require('ora');
 const config = require('../lib/config');
 const package = require('../package.json');
 const fse = require('fs-extra');
+const spawn = require('cross-spawn');
+const os = require('os');
+const envinfo = require('envinfo');
 
 program
   .version(package.version)
@@ -74,20 +77,40 @@ program
   });
 
 program
-  .command('new')
+  .command('new <project>')
   .version(package.version)
   .description('Creates a new espack project application')
+  .option('-i, --install <value>', 'Installation options', 'npm')
   .action((env, options) => {
     if (typeof env === 'string') {
       const project = env;
       const workDirectory = path.join(process.cwd(), project);
-      if (fse.existsSync(workDirectory)) {
-        console.log(`${chalk.black.bgRed(' WARN ')} ${chalk.red('the project path exists')}`);
-      } else {
-        fse.mkdirSync(workDirectory);
-      }
-    } else {
-      console.log(`${chalk.black.bgRed(' WARN ')} ${chalk.red('Usage: espack new [name]')}`);
+      const installOptions = [
+        'npm',
+        'yarn'
+      ].indexOf(options.install.toLocaleLowerCase()) === -1
+        ? 'npm'
+        : options.install.toLocaleLowerCase();
+      envinfo.run(
+        {
+          Binaries: ['Node', 'Yarn', 'npm', 'create-react-app'],
+        },
+        { json: true }
+      ).then((data) => {
+        const info = JSON.parse(data);
+        if (
+          (installOptions === 'npm' && info.Binaries.npm)
+          || (installOptions === 'yarn' && info.Binaries.Yarn)
+        ) {
+          createApp({
+            project,
+            workDirectory,
+            installOptions,
+          });
+        } else {
+          console.log(`${chalk.black.bgRed(' WARN ')} ${chalk.red(`you must first install ${installOptions} globally`)}`);
+        }
+      });
     }
   });
 
@@ -102,3 +125,71 @@ program
 
 // help
 if (program.args.length < 1) return program.help();
+
+
+
+
+
+function createApp({
+  project,
+  workDirectory,
+  installOptions,
+}) {
+  if (fse.existsSync(workDirectory)) {
+    console.log(`${chalk.black.bgRed(' WARN ')} ${chalk.red('the project path exists')}`);
+  } else {
+    // create folder
+    fse.mkdirSync(workDirectory);
+    // write package.json
+    const packageJson = {
+      name: project,
+      version: '1.0.0',
+      description: '',
+      scripts: {
+        dev: 'espack dev',
+        build: 'espack build'
+      }
+    };
+    fse.writeFileSync(
+      path.join(workDirectory, 'package.json'),
+      JSON.stringify(packageJson, null, 2) + os.EOL
+    );
+    // create pages
+    fse.ensureDirSync(path.join(workDirectory, 'src', 'pages'));
+    ['App.js', 'App.ejs', 'App.scss'].forEach((file) => {
+      fse.copyFileSync(
+        path.join(__dirname, '../lib/template/pages', file),
+        path.join(workDirectory, 'src', 'pages', file)
+      );
+    });
+    let appFiles = fse.readFileSync(
+      path.join(__dirname, '../lib/template/pages', 'App.js'),
+      { encoding: 'utf-8' }
+    );
+    appFiles = appFiles.replace('{{version}}', package.version);
+    fse.writeFileSync(
+      path.join(workDirectory, 'src', 'pages', 'App.js'),
+      appFiles
+    );
+    // install espack locally
+    if (installOptions === 'npm') {
+      spawn.sync(
+        'npm',
+        ['install', '@104corp/espack', '-D'],
+        {
+          stdio: 'inherit',
+          cwd: workDirectory,
+        },
+      );
+    } else if (installOptions === 'yarn') {
+      spawn.sync(
+        'yarn',
+        ['add', '@104corp/espack', '-D'],
+        {
+          stdio: 'inherit',
+          cwd: workDirectory,
+        },
+      );
+    }
+  }
+}
