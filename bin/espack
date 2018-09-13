@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
+const path = require('path');
 const chalk = require('chalk');
 const program = require('commander');
 const ora = require('ora');
-const runner = require('../lib/register');
 const config = require('../lib/config');
 const package = require('../package.json');
+const fse = require('fs-extra');
 
 program
   .version(package.version)
@@ -15,13 +16,20 @@ program
 program
   .command('dev')
   .version(package.version)
-  .description('Development model')
+  .description('Builds the application and starts a development server.')
   .option('-p, --port <value>', 'Specify a port number to run dev server', process.env.npm_package_config_port || 8888)
   .option('-v, --views_folder <value>', 'The bundled html will be under this path', config.VIEW_ROOT)
   .option('-s, --static_folder <value>', 'The bundled resources will be under this path', config.STATIC_ROOT)
   .option('-c, --css_assets_path <value>', 'The url root path in css will be replaced', config.CSS_ASSETS_PATH)
   .option('-b, --base_tag <value>', 'Specify a default base URL for all links on a page', config.BASE_TAG)
   .action((env, options) => {
+    let runner;
+    try {
+      runner = require('../lib/register');
+    } catch(e) {
+      console.log(`${chalk.black.bgRed(' WARN ')} ${chalk.red('espack dev for Local installation only')}`);
+      return;
+    }
     const spinner = ora(config.CLI_DEV_TITLE).start();
     runner.start({
       dev: true,
@@ -37,7 +45,7 @@ program
 program
   .command('build')
   .version(package.version)
-  .description('Production model')
+  .description('Compiles the application into an output directory')
   .option('-d, --drop_console', 'Remove console', true)
   .option('-v, --views_folder <value>', 'The bundled html will be under this path', config.VIEW_ROOT)
   .option('-s, --static_folder <value>', 'The bundled resources will be under this path', config.STATIC_ROOT)
@@ -45,6 +53,13 @@ program
   .option('-b, --base_tag <value>', 'Specify a default base URL for all links on a page', config.BASE_TAG)
   .option('-k, --keep_dist', 'Do not remove the dist folder when publishing', true)
   .action((env, options) => {
+    let runner;
+    try {
+      runner = require('../lib/register');
+    } catch(e) {
+      console.log(`${chalk.black.bgRed(' WARN ')} ${chalk.red('espack build for Local installation only')}`);
+      return;
+    }
     const spinner = ora(config.CLI_BUILD_TITLE).start();
     runner.start({
       dev: false,
@@ -57,6 +72,25 @@ program
       spinner,
     });
   });
+
+program
+  .command('new')
+  .version(package.version)
+  .description('Creates a new espack project application')
+  .action((env, options) => {
+    if (typeof env === 'string') {
+      const project = env;
+      const workDirectory = path.join(process.cwd(), project);
+      if (fse.existsSync(workDirectory)) {
+        console.log(`${chalk.black.bgRed(' WARN ')} ${chalk.red('the project path exists')}`);
+      } else {
+        fse.mkdirSync(workDirectory);
+      }
+    } else {
+      console.log(`${chalk.black.bgRed(' WARN ')} ${chalk.red('Usage: espack new [name]')}`);
+    }
+  });
+
 
 console.log();
 process.on('exit', () => {
