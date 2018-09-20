@@ -14,16 +14,16 @@ The front-end development environment built with espack is based on the concept 
 
 Automatically create a project.
 
-``` shell
-$ npx @104corp/espack new my-app
-$ cd my-app
-$ npm run dev
+``` sh
+npx @104corp/espack new my-app
+cd my-app
+npm run dev
 ```
 
 If you prefer yarn.
 
-``` shell
-$ npx @104corp/espack new my-app -i yarn
+``` sh
+npx @104corp/espack new my-app -i yarn
 ```
 
 ## Depend
