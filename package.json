@@ -3,7 +3,9 @@
   "version": "1.0.0-alpha.3",
   "description": "espack is a awesome front-end tool with JS bundle solution around webpack for building static web",
   "keywords": [
-    "espack", "104corp", "webpack"
+    "espack",
+    "104corp",
+    "webpack"
   ],
   "main": "./lib/api/index.js",
   "scripts": {
@@ -44,7 +46,6 @@
     "@babel/register": "^7.0.0",
     "@babel/runtime": "^7.0.0",
     "autoprefixer": "^9.1.0",
-    "babel-core": "7.0.0-bridge.0",
     "babel-loader": "^8.0.0",
     "babel-plugin-lodash": "^3.3.4",
     "chalk": "^2.3.0",
@@ -81,6 +82,7 @@
     "webpack-dev-server": "^3.1.6"
   },
   "devDependencies": {
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.4.2",
     "babel-plugin-array-includes": "^2.0.3",
