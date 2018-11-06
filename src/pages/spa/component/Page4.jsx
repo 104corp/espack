@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { getReactStar } from '../redux/modules/reactStar';
-
+import { cancelAllAPI } from '../redux/modules/fetchAPI';
 
 class Page4 extends React.Component {
   handleOpen = (event) => {
@@ -15,7 +15,17 @@ class Page4 extends React.Component {
     }
   }
 
+  handleBtnClick = () => {
+    const {
+      getReactStarAction,
+      // cancelAllAPIAction,
+    } = this.props;
+    getReactStarAction();
+    // cancelAllAPIAction(); // cancel ajax
+  }
+
   render() {
+    const { reactStar } = this.props;
     return (
       <React.Fragment>
         <Helmet>
@@ -32,7 +42,10 @@ class Page4 extends React.Component {
         <br />
         <br />
         <p>redux-observable</p>
-        <button onClick={this.props.getReactStar}>Get React Star: {this.props.reactStar}</button>
+        <button type="button" onClick={this.handleBtnClick}>
+          Get React Star:
+          { reactStar }
+        </button>
       </React.Fragment>
     );
   }
@@ -40,7 +53,8 @@ class Page4 extends React.Component {
 
 Page4.propTypes = {
   reactStar: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-  getReactStar: PropTypes.func.isRequired,
+  getReactStarAction: PropTypes.func.isRequired,
+  cancelAllAPIAction: PropTypes.func.isRequired,
 };
 
 Page4.defaultProps = {};
@@ -50,6 +64,7 @@ export default connect(
     reactStar: state.reactStar,
   }),
   dispatch => bindActionCreators({
-    getReactStar,
+    getReactStarAction: getReactStar,
+    cancelAllAPIAction: cancelAllAPI,
   }, dispatch),
 )(Page4);

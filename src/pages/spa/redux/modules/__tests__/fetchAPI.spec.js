@@ -14,7 +14,7 @@ import {
   fetchAPIState,
 } from '../fetchAPI';
 
-let epicMiddleware = createEpicMiddleware(fetchAPIEpic);
+let epicMiddleware = createEpicMiddleware();
 let mockStore = configureMockStore([epicMiddleware]);
 const localhost = 'https://127.0.0.1';
 const apiPath = '/repos/facebook/react';
@@ -43,12 +43,12 @@ const action = {
 describe('fetchAPI.js', () => {
   beforeEach(() => {
     store = mockStore();
+    epicMiddleware.run(fetchAPIEpic);
   });
 
   afterEach(() => {
     nock.cleanAll();
-    // epicMiddleware.replaceEpic(fetchAPIEpic);
-    epicMiddleware = createEpicMiddleware(fetchAPIEpic);
+    epicMiddleware = createEpicMiddleware();
     mockStore = configureMockStore([epicMiddleware]);
   });
 

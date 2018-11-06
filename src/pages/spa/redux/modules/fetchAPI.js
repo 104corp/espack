@@ -1,16 +1,15 @@
 /* eslint-disable max-len */
-import { ajax } from 'rxjs/observable/dom/ajax';
-import { AjaxResponse } from 'rxjs/observable/dom/AjaxObservable';
-import { of } from 'rxjs/observable/of';
-import { merge } from 'rxjs/observable/merge';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mapTo';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/race';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/let';
-import 'rxjs/add/operator/takeUntil';
+import { ajax, AjaxResponse } from 'rxjs/ajax';
+import { of, merge } from 'rxjs';
+import {
+  mergeMap,
+  map,
+  catchError,
+  race,
+  take,
+  takeUntil,
+} from 'rxjs/operators';
+import { ofType } from 'redux-observable';
 
 // ///////////////////////////////////
 // Action
@@ -71,8 +70,9 @@ export function cancelAllAPI() {
  * [API action] -> [processingStart action] -> [AJAX] -> [cancel action, self cancel action] -> [processingEnd action]
 */
 export const fetchAPIEpic = action$ => (
-  action$.ofType(API)
-    .mergeMap((action) => {
+  action$.pipe(
+    ofType(API),
+    mergeMap((action) => {
       const {
         next,
         error,
@@ -89,17 +89,27 @@ export const fetchAPIEpic = action$ => (
           const cancelTypes = [FETCH_API_CANCELLED];
           if (typeof cancelType === 'string') cancelTypes.push(cancelType);
           if (processingEnd) {
-            return obs.race(action$.ofType(...cancelTypes)
-              .map(() => processingEnd)
-              .take(1));
+            return obs.pipe(
+              race(
+                action$.pipe(
+                  ofType(...cancelTypes),
+                  map(() => processingEnd),
+                  take(1),
+                ),
+              ),
+            );
           }
-          return obs.takeUntil(action$.ofType(...cancelTypes));
+          return obs.pipe(
+            takeUntil(
+              action$.ofType(...cancelTypes),
+            ),
+          );
         };
         // Ajax
         const apiActions = [
-          ajax({ ...payload })
-            .catch(err => of(err))
-            .mergeMap((response) => {
+          ajax({ ...payload }).pipe(
+            catchError(err => of(err)),
+            mergeMap((response) => {
               const resultAction = [];
               if (response instanceof AjaxResponse) {
                 // Success - AjaxResponse
@@ -124,8 +134,9 @@ export const fetchAPIEpic = action$ => (
               // Processing End Action
               if (processingEnd) resultAction.push(of(processingEnd));
               return merge(...resultAction);
-            })
-            .let(cancelAction),
+            }),
+            cancelAction,
+          ),
         ];
         // Processing Start Action
         if (processingStart) apiActions.unshift(of(processingStart));
@@ -133,7 +144,8 @@ export const fetchAPIEpic = action$ => (
       }
       // Missing URL
       return of({ type: API_ERROR, status: 0, message: 'Missing URL' });
-    })
+    }),
+  )
 );
 
 

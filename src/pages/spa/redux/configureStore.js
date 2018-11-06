@@ -17,7 +17,7 @@ export const rootReducer = combineReducers({
   reactStar,
 });
 
-const epicMiddleware = createEpicMiddleware(rootEpic);
+const epicMiddleware = createEpicMiddleware();
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers = process.env.NODE_ENV === 'development'
   && typeof window === 'object'
@@ -30,5 +30,6 @@ export default function configureStore() {
     rootReducer,
     composeEnhancers(applyMiddleware(epicMiddleware)),
   );
+  epicMiddleware.run(rootEpic);
   return store;
 }
