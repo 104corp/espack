@@ -2440,6 +2440,15 @@ css-color-names@0.0.4:
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
   integrity sha1-gIrcLnnPhHOAabZGyyDsJ762KeA=
 
+css-hot-loader@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/css-hot-loader/-/css-hot-loader-1.4.2.tgz#6fa7ae7b8e309bb8be3b7b586efd702073c68611"
+  integrity sha512-f2A5oTwEOWFCM90zh/f+WEOcHbrqGK5Hc8CZI/Bf5kgSOsP6mAXd+P3thBg6uHxaKtby6+Z7wjT5IC6KZt1Q6g==
+  dependencies:
+    loader-utils "^1.1.0"
+    lodash "^4.17.5"
+    normalize-url "^1.9.1"
+
 css-loader@^0.28.11:
   version "0.28.11"
   resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.28.11.tgz#c3f9864a700be2711bb5a2462b2389b1a392dab7"
@@ -6100,7 +6109,7 @@ normalize-range@^0.1.2:
   resolved "https://registry.yarnpkg.com/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
   integrity sha1-LRDAa9/TEuqXd2laTShDlFa3WUI=
 
-normalize-url@^1.4.0:
+normalize-url@^1.4.0, normalize-url@^1.9.1:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-1.9.1.tgz#2cc0d66b31ea23036458436e3620d85954c66c3c"
   integrity sha1-LMDWazHqIwNkWENuNiDYWVTGbDw=

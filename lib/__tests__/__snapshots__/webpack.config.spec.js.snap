@@ -63,6 +63,7 @@ Object {
       Object {
         "test": /\\\\\\.\\(css\\|s\\[ac\\]ss\\)\\$/,
         "use": Array [
+          "css-hot-loader",
           [Function],
           Object {
             "loader": "css-loader",
@@ -103,6 +104,7 @@ Object {
       Object {
         "test": /\\\\\\.less\\$/,
         "use": Array [
+          "css-hot-loader",
           [Function],
           Object {
             "loader": "css-loader",
@@ -289,6 +291,7 @@ Object {
       Object {
         "test": /\\\\\\.\\(css\\|s\\[ac\\]ss\\)\\$/,
         "use": Array [
+          "css-hot-loader",
           [Function],
           Object {
             "loader": "css-loader",
@@ -329,6 +332,7 @@ Object {
       Object {
         "test": /\\\\\\.less\\$/,
         "use": Array [
+          "css-hot-loader",
           [Function],
           Object {
             "loader": "css-loader",
