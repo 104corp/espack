@@ -30,8 +30,11 @@
     "jest-junit": "^5.1.0",
     "jsdom": "^13.0.0",
     "live-server": "^1.2.0",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-dashboard": "^2.0.0",
+    "webpack-merge": "^4.1.4",
     "webpack-notifier": "^1.5.0"
   },
   "dependencies": {
@@ -49,7 +52,8 @@
     "redux": "^4.0.0",
     "redux-mock-store": "^1.5.1",
     "redux-observable": "^1.0.0",
-    "rxjs": "^6.3.3"
+    "rxjs": "^6.3.3",
+    "vue": "^2.5.17"
   },
   "engines": {
     "node": ">=8.10.0"

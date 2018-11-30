@@ -33,9 +33,7 @@ class Page4 extends React.Component {
           <title>SPA Page4</title>
           <body style="background-color: honeydew;" />
         </Helmet>
-        <i className="material-icons">&#xE8D0;</i>
-        <h1 className="title">頁面四</h1>
-        <i className="material-icons">&#xE8D0;</i>
+        <h1 className="title title-react">React</h1>
         <br />
         <p>代理實際線上網站平台進來，但替換部分資源</p>
         <a href="/104/jobbank/faq/" target="_blank" onClick={this.handleOpen}>Proxy 104 FAQ</a>

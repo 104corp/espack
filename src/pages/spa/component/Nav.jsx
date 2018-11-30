@@ -1,27 +1,20 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import header from '../../_commons/header.ejs';
 
-const style = {
-  active: { color: '#03a9f4', fontWeight: 500 },
+const Nav = ({ location }) => {
+  const ejs = header({
+    active: location.pathname === '/spa/page3' ? 'page3' : 'page4',
+  });
+  return <div dangerouslySetInnerHTML={{ __html: ejs }} />;
 };
 
-const Nav = () => (
-  <nav className="nav">
-    <ul>
-      <a href="separate/page1.html">
-        <li>Page 1</li>
-      </a>
-      <a href="separate/page2.html">
-        <li>Page 2</li>
-      </a>
-      <NavLink activeStyle={style.active} exact to="/spa/page3">
-        <li>Page 3</li>
-      </NavLink>
-      <NavLink activeStyle={style.active} exact to="/spa/page4">
-        <li>Page 4</li>
-      </NavLink>
-    </ul>
-  </nav>
-);
+Nav.propTypes = {
+  location: PropTypes.shape({
+    hash: PropTypes.string,
+    pathname: PropTypes.string,
+    search: PropTypes.string,
+  }).isRequired,
+};
 
 export default Nav;

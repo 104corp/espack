@@ -19,9 +19,7 @@ class Page3 extends React.Component {
           <title>SPA Page3</title>
           <body style="background-color: aliceblue;" />
         </Helmet>
-        <i className="material-icons">&#xE8D0;</i>
-        <h1 className="title">頁面三</h1>
-        <i className="material-icons">&#xE8D0;</i>
+        <h1 className="title title-react">React</h1>
         <br />
         <p>臺北市政府資訊開放平台天氣 api 代理連結</p>
         <ul>

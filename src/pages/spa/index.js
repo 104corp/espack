@@ -36,9 +36,7 @@ ReactDOM.render(
             }
           </style>
         </Helmet>
-        <header className="header">
-          <Nav />
-        </header>
+        <Route path="*" component={Nav} />
         <Switch>
           <Route path="/spa/page3" component={Page3} />
           <Route path="/spa/page4" component={Page4} />

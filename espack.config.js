@@ -3,14 +3,15 @@ const path = require('path');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const liveServer = require('live-server');
 const HtmlBeautifyPlugin = require('html-beautify-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const  jsdom = require('jsdom');
+const merge = require('webpack-merge');
+const jsdom = require('jsdom');
 const fse = require('fs-extra');
 const { JSDOM } = jsdom;
 const opener = require('opener');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const espack = require('@104corp/espack');
+const { VueLoaderPlugin } = require('vue-loader');
 /* eslint-enable */
 
 
@@ -167,33 +168,57 @@ module.exports = {
       })
       .config;
 
-    // Beautify HTML
-    newConfig.plugins.push(new HtmlBeautifyPlugin({
-      config: {
-        html: {
-          indent_size: 2,
-          indent_char: ' ',
-          max_preserve_newlines: 1,
+    const customizeConfig = [
+      newConfig,
+      {
+        module: {
+          rules: [{ // Vue
+            test: /\.vue$/,
+            loader: 'vue-loader',
+            exclude: /bower_components/,
+          }],
         },
+        plugins: [
+          // Beautify HTML
+          new HtmlBeautifyPlugin({
+            config: {
+              html: {
+                indent_size: 2,
+                indent_char: ' ',
+                max_preserve_newlines: 1,
+              },
+            },
+            replace: [{ test: '<html lang="en">', with: '<html lang="zh-tw">' }],
+          }),
+          // Vue
+          new VueLoaderPlugin(),
+        ],
       },
-      replace: [{ test: '<html lang="en">', with: '<html lang="zh-tw">' }],
-    }));
+    ];
 
     if (dev) {
       // 加入開發輔助 Plugin
-      newConfig.plugins.push(
-        // ejs 內有些錯誤使用 FriendlyErrorsWebpackPlugin 會看不到詳細錯誤資訊
-        new FriendlyErrorsWebpackPlugin(),
-        new WebpackNotifierPlugin({
-          title: 'Example',
-          alwaysNotify: true,
-        }),
-      );
+      customizeConfig.push({
+        plugins: [
+          // ejs 內有些錯誤使用 FriendlyErrorsWebpackPlugin 會看不到詳細錯誤資訊
+          new FriendlyErrorsWebpackPlugin(),
+          // Notifier
+          new WebpackNotifierPlugin({
+            title: 'Example',
+            alwaysNotify: true,
+          }),
+        ],
+      });
     } else {
-      // 分析 Bundle Size
-      newConfig.plugins.push(new BundleAnalyzerPlugin());
+      customizeConfig.push({
+        plugins: [
+          // 分析 Bundle Size
+          new BundleAnalyzerPlugin(),
+        ],
+      });
     }
-    return newConfig;
+    // merge webpack config
+    return merge.smart(customizeConfig);
   },
   devServer: {
     // 使用 FriendlyErrorsWebpackPlugin 需要設置 quiet: true
