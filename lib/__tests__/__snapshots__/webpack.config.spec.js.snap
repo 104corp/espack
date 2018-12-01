@@ -151,6 +151,9 @@ Object {
     "publicPath": "",
   },
   "plugins": Array [
+    HtmlReloadPlugin {
+      "cache": Object {},
+    },
     Object {},
     HtmlWebpackPlugin {
       "options": Object {
