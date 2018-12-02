@@ -1,6 +1,6 @@
 # Espack Example
 
-展示混合一般靜態頁開發與使用 react 製作的 SPA 頁面的設定方式，還有展示如何設定 proxy 將 API 或外部網站代理進開發環境，還有抽取共用 JS，或不使用 webpack 單純使用 babel 來轉譯 JS 等範例。
+展示混合一般靜態頁開發與使用 `React` 製作的 `SPA` 頁面的設定方式以及使用 `Vue` 開發的頁面，還有展示如何設定 `proxy` 將 API 或外部網站代理進開發環境，還有抽取共用 JS，或不使用 webpack 單純使用 babel 來轉譯 JS 等範例。
 
 ## 環境需求
 
@@ -11,8 +11,8 @@
 下載 Example
 
 ``` shell
-$ git clone git@github.com:104corp/espack.git es6-project --branch example
-$ cd es6-project
+$ git clone git@github.com:104corp/espack.git espack-example --branch example
+$ cd espack-example
 $ npm install
 ```
 
