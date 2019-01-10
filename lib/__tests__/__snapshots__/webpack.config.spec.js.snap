@@ -304,6 +304,7 @@ Object {
               "plugins": Array [
                 [Function],
                 [Function],
+                [Function],
               ],
               "sourceMap": true,
             },
@@ -339,6 +340,7 @@ Object {
             "options": Object {
               "ident": "postcss",
               "plugins": Array [
+                [Function],
                 [Function],
                 [Function],
               ],
