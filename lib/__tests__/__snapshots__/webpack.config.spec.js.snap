@@ -68,10 +68,6 @@ Object {
           Object {
             "loader": "css-loader",
             "options": Object {
-              "alias": Object {
-                "@": "/",
-              },
-              "minimize": true,
               "sourceMap": true,
             },
           },
@@ -109,10 +105,6 @@ Object {
           Object {
             "loader": "css-loader",
             "options": Object {
-              "alias": Object {
-                "@": "/",
-              },
-              "minimize": true,
               "sourceMap": true,
             },
           },
@@ -219,6 +211,9 @@ Object {
     CSSExtractRenamePlugin {},
   ],
   "resolve": Object {
+    "alias": Object {
+      "@": "/",
+    },
     "extensions": Array [
       ".web.js",
       ".js",
@@ -299,10 +294,6 @@ Object {
           Object {
             "loader": "css-loader",
             "options": Object {
-              "alias": Object {
-                "@": "/",
-              },
-              "minimize": true,
               "sourceMap": true,
             },
           },
@@ -340,10 +331,6 @@ Object {
           Object {
             "loader": "css-loader",
             "options": Object {
-              "alias": Object {
-                "@": "/",
-              },
-              "minimize": true,
               "sourceMap": true,
             },
           },
@@ -436,6 +423,9 @@ Object {
     CSSExtractRenamePlugin {},
   ],
   "resolve": Object {
+    "alias": Object {
+      "@": "/",
+    },
     "extensions": Array [
       ".web.js",
       ".js",

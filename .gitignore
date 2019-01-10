@@ -4,6 +4,7 @@ npm-debug.log*
 *.tgz
 node_modules
 npm-debug.log
+.tmp
 .vscode
 junit.xml
 /coverage

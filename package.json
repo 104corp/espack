@@ -1,6 +1,6 @@
 {
   "name": "@104corp/espack",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "espack is a awesome front-end tool with JS bundle solution around webpack for building static web",
   "keywords": [
     "espack",
@@ -54,7 +54,7 @@
     "concatenate": "^0.0.2",
     "cross-spawn": "^6.0.5",
     "css-hot-loader": "^1.4.2",
-    "css-loader": "^0.28.11",
+    "css-loader": "^2.1.0",
     "ejs-loader": "^0.3.0",
     "envinfo": "^5.10.0",
     "express": "^4.15.4",
