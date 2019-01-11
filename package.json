@@ -1,6 +1,6 @@
 {
   "name": "@104corp/espack",
-  "version": "1.0.0-alpha.5",
+  "version": "1.0.0-alpha.6",
   "description": "espack is a awesome front-end tool with JS bundle solution around webpack for building static web",
   "keywords": [
     "espack",
@@ -79,7 +79,7 @@
     "ora": "^3.0.0",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
-    "resolve-url-loader": "^3.0.0",
+    "resolve-url-loader": "^2.3.1",
     "sass-loader": "^7.1.0",
     "uglify-es": "^3.3.8",
     "uglifyjs-webpack-plugin": "^2.1.1",
