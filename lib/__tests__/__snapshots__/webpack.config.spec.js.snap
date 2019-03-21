@@ -359,19 +359,30 @@ Object {
   },
   "optimization": Object {
     "minimizer": Array [
-      Object {
-        "parallel": true,
-        "sourceMap": false,
-        "uglifyOptions": Object {
-          "compress": Object {
-            "dead_code": true,
-            "drop_console": false,
+      TerserPlugin {
+        "options": Object {
+          "cache": false,
+          "cacheKeys": [Function],
+          "chunkFilter": [Function],
+          "exclude": undefined,
+          "extractComments": false,
+          "include": undefined,
+          "minify": undefined,
+          "parallel": true,
+          "sourceMap": false,
+          "terserOptions": Object {
+            "compress": Object {
+              "drop_console": false,
+            },
+            "ie8": true,
+            "output": Object {
+              "comments": false,
+            },
+            "safari10": true,
             "warnings": false,
           },
-          "ie8": true,
-          "output": Object {
-            "comments": false,
-          },
+          "test": /\\\\\\.m\\?js\\(\\\\\\?\\.\\*\\)\\?\\$/i,
+          "warningsFilter": [Function],
         },
       },
     ],
