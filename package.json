@@ -1,0 +1,17 @@
+{
+  "name": "example-webpack-bundle-analyzer",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "scripts": {
+    "dev": "espack dev",
+    "build": "espack build"
+  },
+  "devDependencies": {
+    "@104corp/espack": "^1.0.0-alpha.7",
+    "webpack-bundle-analyzer": "^3.1.0"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
