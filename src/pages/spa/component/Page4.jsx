@@ -11,6 +11,7 @@ class Page4 extends React.Component {
   handleOpen = (event) => {
     if (process.env.NODE_ENV === 'production') {
       event.preventDefault();
+      // eslint-disable-next-line no-alert
       alert('Only for 開發模式才有 proxy 功能');
     }
   }
@@ -52,6 +53,7 @@ class Page4 extends React.Component {
 Page4.propTypes = {
   reactStar: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   getReactStarAction: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/no-unused-prop-types
   cancelAllAPIAction: PropTypes.func.isRequired,
 };
 

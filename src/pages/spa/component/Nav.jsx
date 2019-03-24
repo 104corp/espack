@@ -6,6 +6,7 @@ const Nav = ({ location }) => {
   const ejs = header({
     active: location.pathname === '/spa/page3' ? 'page3' : 'page4',
   });
+  // eslint-disable-next-line react/no-danger
   return <div dangerouslySetInnerHTML={{ __html: ejs }} />;
 };
 

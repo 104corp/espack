@@ -7,6 +7,7 @@ class Page3 extends React.Component {
   handleOpen = (event) => {
     if (process.env.NODE_ENV === 'production') {
       event.preventDefault();
+      // eslint-disable-next-line no-alert
       alert('Only for 開發模式才有 proxy 功能');
     }
   }

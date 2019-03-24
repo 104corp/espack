@@ -7,6 +7,7 @@
         ]
       },
       "useBuiltIns": "usage",
+      "corejs": 3,
       "modules": false
     }],
     "@104corp/espack/lib/babel/preset-stage",

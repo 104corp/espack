@@ -1,13 +1,17 @@
 {
   "extends": [
-    "airbnb"
+    "airbnb",
+    "plugin:vue/recommended"
   ],
   "env": {
     "browser": true,
+    "es6": true,
     "node": true,
     "jest": true
   },
-  "parser": "babel-eslint",
+  "parserOptions": {
+    "parser": "babel-eslint"
+  },
   "rules": {
     "no-console": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],

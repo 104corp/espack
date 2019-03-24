@@ -8,12 +8,12 @@
   "scripts": {
     "dev": "espack dev",
     "build": "espack build -c ../../",
-    "lint": "eslint .",
+    "lint": "eslint --ext js,jsx,vue .",
     "test": "npm run lint && jest --env=jsdom --verbose --colors --no-cache"
   },
   "license": "MIT",
   "devDependencies": {
-    "@104corp/espack": "^1.0.0-alpha.3",
+    "@104corp/espack": "^1.0.0-alpha.7",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
@@ -22,6 +22,7 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.8.2",
+    "eslint-plugin-vue": "^5.2.2",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-beautify-webpack-plugin": "^1.0.4",
     "identity-obj-proxy": "^3.0.0",
@@ -29,8 +30,8 @@
     "jest-junit": "^5.1.0",
     "jsdom": "^13.0.0",
     "live-server": "^1.2.0",
-    "vue-loader": "^15.4.2",
-    "vue-template-compiler": "^2.5.17",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-dashboard": "^2.0.0",
     "webpack-merge": "^4.1.4",
@@ -38,6 +39,7 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
+    "core-js": "3",
     "lodash": "^4.17.4",
     "nock": "^10.0.2",
     "prop-types": "^15.6.1",
