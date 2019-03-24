@@ -1,0 +1,24 @@
+{
+  "name": "example-vue",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "espack dev",
+    "build": "espack build",
+    "lint": "eslint --ext js,vue ."
+  },
+  "devDependencies": {
+    "@104corp/espack": "^1.0.0-alpha.7",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "dependencies": {
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.2"
+  }
+}
