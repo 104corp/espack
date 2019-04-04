@@ -1,0 +1,17 @@
+{
+  "name": "example-api",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "scripts": {
+    "dev": "espack dev",
+    "build": "espack build -c ../../"
+  },
+  "devDependencies": {
+    "@104corp/espack": "^1.0.0-alpha.7"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.4.1",
+    "jquery": "^3.3.1"
+  }
+}
