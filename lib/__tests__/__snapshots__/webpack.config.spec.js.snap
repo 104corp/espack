@@ -43,7 +43,6 @@ Object {
             "options": Object {
               "limit": 10000,
               "name": [Function],
-              "publicPath": [Function],
             },
           },
         ],
@@ -55,7 +54,6 @@ Object {
             "loader": "file-loader",
             "options": Object {
               "name": [Function],
-              "publicPath": [Function],
             },
           },
         ],
@@ -64,9 +62,10 @@ Object {
         "test": /\\\\\\.\\(css\\|s\\[ac\\]ss\\)\\$/,
         "use": Array [
           Object {
-            "loader": [Function],
+            "loader": "mini-css-extract-plugin",
             "options": Object {
               "hmr": true,
+              "publicPath": "",
             },
           },
           Object {
@@ -105,9 +104,10 @@ Object {
         "test": /\\\\\\.less\\$/,
         "use": Array [
           Object {
-            "loader": [Function],
+            "loader": "mini-css-extract-plugin",
             "options": Object {
               "hmr": true,
+              "publicPath": "",
             },
           },
           Object {
@@ -277,7 +277,6 @@ Object {
             "options": Object {
               "limit": 10000,
               "name": [Function],
-              "publicPath": [Function],
             },
           },
         ],
@@ -289,7 +288,6 @@ Object {
             "loader": "file-loader",
             "options": Object {
               "name": [Function],
-              "publicPath": [Function],
             },
           },
         ],
@@ -298,9 +296,10 @@ Object {
         "test": /\\\\\\.\\(css\\|s\\[ac\\]ss\\)\\$/,
         "use": Array [
           Object {
-            "loader": [Function],
+            "loader": "mini-css-extract-plugin",
             "options": Object {
               "hmr": false,
+              "publicPath": "",
             },
           },
           Object {
@@ -340,9 +339,10 @@ Object {
         "test": /\\\\\\.less\\$/,
         "use": Array [
           Object {
-            "loader": [Function],
+            "loader": "mini-css-extract-plugin",
             "options": Object {
               "hmr": false,
+              "publicPath": "",
             },
           },
           Object {

@@ -1,10 +1,5 @@
 class MiniCssExtractPlugin {
-  static loader() {
-    return {
-      pitch: () => {},
-      default: () => {},
-    };
-  }
+  static loader = 'mini-css-extract-plugin';
 
   constructor(options) {
     return options;
