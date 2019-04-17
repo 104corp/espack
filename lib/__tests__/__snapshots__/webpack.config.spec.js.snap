@@ -63,8 +63,12 @@ Object {
       Object {
         "test": /\\\\\\.\\(css\\|s\\[ac\\]ss\\)\\$/,
         "use": Array [
-          "css-hot-loader",
-          [Function],
+          Object {
+            "loader": [Function],
+            "options": Object {
+              "hmr": true,
+            },
+          },
           Object {
             "loader": "css-loader",
             "options": Object {
@@ -100,8 +104,12 @@ Object {
       Object {
         "test": /\\\\\\.less\\$/,
         "use": Array [
-          "css-hot-loader",
-          [Function],
+          Object {
+            "loader": [Function],
+            "options": Object {
+              "hmr": true,
+            },
+          },
           Object {
             "loader": "css-loader",
             "options": Object {
@@ -289,8 +297,12 @@ Object {
       Object {
         "test": /\\\\\\.\\(css\\|s\\[ac\\]ss\\)\\$/,
         "use": Array [
-          "css-hot-loader",
-          [Function],
+          Object {
+            "loader": [Function],
+            "options": Object {
+              "hmr": false,
+            },
+          },
           Object {
             "loader": "css-loader",
             "options": Object {
@@ -327,8 +339,12 @@ Object {
       Object {
         "test": /\\\\\\.less\\$/,
         "use": Array [
-          "css-hot-loader",
-          [Function],
+          Object {
+            "loader": [Function],
+            "options": Object {
+              "hmr": false,
+            },
+          },
           Object {
             "loader": "css-loader",
             "options": Object {
@@ -383,6 +399,37 @@ Object {
           },
           "test": /\\\\\\.m\\?js\\(\\\\\\?\\.\\*\\)\\?\\$/i,
           "warningsFilter": [Function],
+        },
+      },
+      OptimizeCssAssetsWebpackPlugin {
+        "deleteAssetsMap": Object {},
+        "options": Object {
+          "assetNameRegExp": /\\\\\\.css\\$/g,
+          "assetProcessors": Array [
+            Object {
+              "phase": "compilation.optimize-chunk-assets",
+              "processor": [Function],
+              "regExp": /\\\\\\.css\\$/g,
+            },
+          ],
+          "canPrint": undefined,
+          "cssProcessor": [Function],
+          "cssProcessorOptions": Object {},
+          "cssProcessorPluginOptions": Object {},
+        },
+        "phaseAssetProcessors": Object {
+          "compilation.optimize-assets": Array [],
+          "compilation.optimize-chunk-assets": Array [
+            Object {
+              "phase": "compilation.optimize-chunk-assets",
+              "processor": [Function],
+              "regExp": /\\\\\\.css\\$/g,
+            },
+          ],
+          "emit": Array [],
+        },
+        "pluginDescriptor": Object {
+          "name": "OptimizeCssAssetsWebpackPlugin",
         },
       },
     ],
