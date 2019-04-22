@@ -5,10 +5,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "espack dev",
-    "build": "espack build -c ../../"
+    "build": "espack build"
   },
   "devDependencies": {
-    "@104corp/espack": "^1.0.0-alpha.7"
+    "@104corp/espack": "^1.0.0-alpha.8"
   },
   "dependencies": {
     "bootstrap-sass": "^3.4.1",

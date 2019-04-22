@@ -30,7 +30,7 @@ module.exports = {
     /**
      * espack API 範例
      * config(config) - 指定原始 config
-     * processCSSUrls(enable) - 是否使用 url 處理，預設 true
+     * processCSSUrls(custom) - url 處理
      * resetPageRoute(handler) - 針對 Page 網址路徑規則重寫
      * htmlChunks(handler) - 每個 page 要依賴的 chunk 的新增修改，藉此將 chunk 自動引入頁面中
      * htmlPluginOptions(handler) - 修改各頁面 HtmlWebpackPlugin 中設定
@@ -50,6 +50,8 @@ module.exports = {
         'bootstrap-sass/assets/stylesheets/_bootstrap.scss',
         './src/pages/styles.scss',
       ], 'styles')
+      // 處理 CSS url 相對路徑
+      .processCSSUrls(() => '../')
       // 將 home, page 頁面共用部分的程式提取出來成為 common.js
       .extract([], 'common', ['home', 'page'])
       // 將 common.js 扔進 ejs 模板之中自動置入
