@@ -213,10 +213,9 @@ Object {
       },
     },
     Object {
-      "filename": "[name].css?[contenthash:8]",
+      "moduleFilename": [Function],
     },
     LodashWebpackPlugin {},
-    CSSExtractRenamePlugin {},
   ],
   "resolve": Object {
     "alias": Object {
@@ -477,10 +476,9 @@ Object {
       },
     },
     Object {
-      "filename": "[name].css?[contenthash:8]",
+      "moduleFilename": [Function],
     },
     LodashWebpackPlugin {},
-    CSSExtractRenamePlugin {},
   ],
   "resolve": Object {
     "alias": Object {

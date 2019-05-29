@@ -38,6 +38,10 @@ npx @104corp/espack new my-app -i yarn
 
 * [document](https://github.com/104corp/espack/wiki)
 * [example](https://github.com/104corp/espack/tree/example)
+* [example-api](https://github.com/104corp/espack/tree/example-api)
+* [example-react](https://github.com/104corp/espack/tree/example-react)
+* [example-vue](https://github.com/104corp/espack/tree/example-vue)
+* [example-webpack-bundle-analyzer](https://github.com/104corp/espack/tree/example-webpack-bundle-analyzer)
 
 ## License
 
