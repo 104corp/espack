@@ -1,6 +1,6 @@
 # @104corp/espack
 
-[![Node version](https://img.shields.io/badge/node-%3E%3D8.10.0-brightgreen.svg)](http://nodejs.org/) [![GitHub license](https://img.shields.io/github/license/104corp/espack.svg)](https://github.com/104corp/espack/blob/master/LICENSE) [![Build Status](https://travis-ci.org/104corp/espack.svg?branch=master)](https://travis-ci.org/104corp/espack) [![Coverage Status](https://coveralls.io/repos/github/104corp/espack/badge.svg?branch=master)](https://coveralls.io/github/104corp/espack?branch=master)
+[![Node version](https://img.shields.io/badge/node-%3E%3D8.16.0-brightgreen.svg)](http://nodejs.org/) [![GitHub license](https://img.shields.io/github/license/104corp/espack.svg)](https://github.com/104corp/espack/blob/master/LICENSE) [![Build Status](https://travis-ci.org/104corp/espack.svg?branch=master)](https://travis-ci.org/104corp/espack) [![Coverage Status](https://coveralls.io/repos/github/104corp/espack/badge.svg?branch=master)](https://coveralls.io/github/104corp/espack?branch=master)
 
 espack is a front-end tool with JS bundle solution around webpack for building static web.
 

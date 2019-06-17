@@ -36,7 +36,7 @@ function readFileSync(filename) {
               ">1%",
               "last 4 versions",
               "Firefox ESR",
-              "not ie < 8"
+              "ie >= 8"
             ]
           },
           "modules": false
