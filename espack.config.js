@@ -57,7 +57,27 @@ module.exports = {
       // 將 common.js 扔進 ejs 模板之中自動置入
       .htmlChunks((chunks, filename) => chunks.concat(['common']))
       // 不透過 webpack，直接使用 babel 轉譯 js
-      .babel(['./src/requestAnimationFrame.js'], 'requestAnimationFrame.js')
+      .babel(
+        ['./src/requestAnimationFrame.js'],
+        'requestAnimationFrame.js',
+        // 未指定 options 則會抓取 .babelrc 設定
+        // {
+        //   presets: [
+        //     ['@babel/preset-env', {
+        //       targets: {
+        //         browsers: [
+        //           '>1%',
+        //           'last 4 versions',
+        //           'Firefox ESR',
+        //           'not ie < 8',
+        //         ],
+        //       },
+        //       // modules: 'umd',
+        //     }],
+        //     '@104corp/espack/lib/babel/preset-stage',
+        //   ],
+        // }
+      )
       // webpack 'done' event
       .then((stats) => {
         // console.log('\n');

@@ -1,4 +1,4 @@
-import packageJSON from '../../package.json';
+import packageJSON from '@104corp/espack/package.json';
 
-const version = packageJSON.devDependencies['@104corp/espack'].replace(/\^/, '');
+const version = packageJSON.version
 export { version };

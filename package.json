@@ -8,7 +8,7 @@
     "build": "espack build"
   },
   "devDependencies": {
-    "@104corp/espack": "^1.0.0-alpha.8"
+    "@104corp/espack": "^1.0.0-alpha.11"
   },
   "dependencies": {
     "bootstrap-sass": "^3.4.1",
