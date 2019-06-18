@@ -24,7 +24,7 @@ require('./page1.scss');
 const { $, moment } = window;
 
 function loop() {
-  $('#ie8').html(`Hi IE8~ ${moment().format()}`);
+  $('#ie8').html(`${moment().format()}`);
   requestAnimationFrame(loop);
 }
 
