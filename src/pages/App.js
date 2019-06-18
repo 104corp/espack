@@ -7,11 +7,12 @@ import {
   Switch,
   Link,
 } from 'react-router-dom';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import packageJSON from '@104corp/espack/package.json';
 
 import './App.scss';
-import packageJSON from '../../package.json';
 
-const version = packageJSON.devDependencies['@104corp/espack'].replace(/\^/, '');
+const { version } = packageJSON;
 
 function Index() {
   return <h2 className="shadow retroshadow">Home</h2>;
