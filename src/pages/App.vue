@@ -23,12 +23,13 @@
 </template>
 
 <script>
-import packageJSON from '../../package.json';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import packageJSON from '@104corp/espack/package.json';
 
 export default {
   data() {
     return {
-      version: packageJSON.devDependencies['@104corp/espack'].replace(/\^/, ''),
+      version: packageJSON.version,
     };
   },
 };

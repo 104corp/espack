@@ -8,7 +8,7 @@
     "lint": "eslint --ext js,vue ."
   },
   "devDependencies": {
-    "@104corp/espack": "^1.0.0-alpha.7",
+    "@104corp/espack": "^1.0.0-alpha.11",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.3",
     "eslint-config-airbnb-base": "^13.1.0",
