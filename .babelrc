@@ -1,0 +1,24 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {
+        "browsers": [
+          "last 2 versions"
+        ]
+      },
+      "modules": false
+    }],
+    "@104corp/espack/lib/babel/preset-stage",
+    "@babel/preset-react"
+  ],
+  "plugins": [],
+  "env": {
+    "test": {
+      "presets": [
+        "@babel/preset-env",
+        "@104corp/espack/lib/babel/preset-stage",
+        "@babel/preset-react"
+      ]
+    }
+  }
+}
