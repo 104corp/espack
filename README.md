@@ -40,6 +40,7 @@ npx @104corp/espack new my-app -i yarn
 * [example](https://github.com/104corp/espack/tree/example)
 * [example-api](https://github.com/104corp/espack/tree/example-api)
 * [example-react](https://github.com/104corp/espack/tree/example-react)
+* [example-preact](https://github.com/104corp/espack/tree/example-preact)
 * [example-vue](https://github.com/104corp/espack/tree/example-vue)
 * [example-webpack-bundle-analyzer](https://github.com/104corp/espack/tree/example-webpack-bundle-analyzer)
 
