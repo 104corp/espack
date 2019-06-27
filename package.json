@@ -1,6 +1,6 @@
 {
   "name": "@104corp/espack",
-  "version": "1.0.0-alpha.10",
+  "version": "1.0.0-alpha.11",
   "description": "espack is a awesome front-end tool with JS bundle solution around webpack for building static web",
   "keywords": [
     "espack",
@@ -79,7 +79,7 @@
     "ora": "~3.4.0",
     "postcss-flexbugs-fixes": "~4.1.0",
     "postcss-loader": "~3.0.0",
-    "resolve-url-loader": "~3.1.0",
+    "resolve-url-loader": "~2.3.2",
     "sass-loader": "~7.1.0",
     "terser": "~4.0.0",
     "terser-webpack-plugin": "~1.3.0",
